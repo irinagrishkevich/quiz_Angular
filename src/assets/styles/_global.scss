@@ -1,0 +1,104 @@
+body{
+  margin: 0;
+  font-family: 'Museo Sans Cyrl',sans-serif;
+  color: #333;
+}
+a{
+  color: #6933DC;
+  cursor: pointer;
+}
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.button{
+  border-radius: 6px;
+  background: #6933DC;
+  padding: 14px 35px;
+  color: #FFF;
+  font-size: 17px;
+  border: 0;
+  cursor: pointer;
+  transition: .4s;
+  text-decoration: none;
+  &a{
+    display: inline-block;
+  }
+  &:hover{
+    background: #320c85;
+  }
+  &:disabled{
+    background: #e2dfe7;
+    cursor: not-allowed;
+  }
+  &.button-transparent{
+    background: transparent;
+    color: #6933DC;
+    border: 1px solid #6933DC;
+    &:hover{
+      background: #6933DC;
+      color: white;
+    }
+    &:disabled{
+      background: transparent;
+      color: #e2dfe7;
+      border: 1px solid #e2dfe7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+
+
+.common-title{
+  font-family: "Museo Sans Cyrl Bold",sans-serif;
+  font-size: 48px;
+  span{
+    color: #6933DC;
+  }
+}
+.big-title{
+  font-family: "Museo Sans Cyrl Bold",sans-serif;
+  font-size: 54px;
+  line-height: 65px;
+  span{
+    color: #6933DC;
+  }
+}
+
+.link{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  a{
+    color: #6933DC;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    &:hover{
+      text-decoration: underline;
+    }
+    img{
+      margin-left: 13px;
+    }
+  }
+}
+
+.common-pre-title{
+  color: #DCDCF3;
+  font-size: 20px;
+}
+.common-question-title{
+  font-family: "Museo Sans Cyrl Bold",sans-serif;
+  font-size: 36px;
+  span{
+    color: #6933DC;
+  }
+}
+.common-question-options{
+  margin-top: 58px;
+  min-height: 344px;
+}
