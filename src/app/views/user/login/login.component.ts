@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
     login() {
         if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
+            this.authService.setEmail(this.loginForm.value.email)
             this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
             .subscribe({
                 next:(data: LoginResponseType) => {
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
                         throw new Error(data.message ? data.message : 'Invalid login')
                     }
 
-                    this.router.navigate(['/'])
+                    this.router.navigate(['/choice'])
                 },
                 error:(error: HttpErrorResponse) =>{
                     this._snackBar.open('Ошибка при авторизации')

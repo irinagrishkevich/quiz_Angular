@@ -40,6 +40,7 @@ export class SignupComponent implements OnInit {
                             throw new Error(data.message ? data.message : 'Invalid signup')
                         }
                         if(this.signupForm.value.email && this.signupForm.value.password){
+                            this.authService.setEmail(this.signupForm.value.email)
                             this.authService.login(this.signupForm.value.email, this.signupForm.value.password)
                                 .subscribe({
                                     next:(data: LoginResponseType) => {
@@ -49,8 +50,7 @@ export class SignupComponent implements OnInit {
                                             throw new Error(data.message ? data.message : 'Invalid login')
                                         }
 
-
-                                        this.router.navigate(['/'])
+                                        this.router.navigate(['/choice'])
                                     },
                                     error:(error: HttpErrorResponse) =>{
                                         this._snackBar.open('Ошибка при регистрации')

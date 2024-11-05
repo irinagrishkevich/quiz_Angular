@@ -6,6 +6,7 @@ import {Observable, Subject, tap} from "rxjs";
 import {UserInfoType} from "../../../types/user-info.type";
 import {LogoutResponseType} from "../../../types/logout-response.type";
 import {SignupResponseType} from "../../../types/signup-response.type";
+import {RefreshResponseType} from "../../../types/refresh-response.type";
 
 @Injectable({
   providedIn: 'root'
@@ -56,6 +57,17 @@ export class AuthService {
       email,
       password
     })
+  }
+
+  public getTokens(): {accessToken: string | null, refreshToken: string | null} {
+    return {accessToken: localStorage.getItem(this.accessTokenKey),
+      refreshToken: localStorage.getItem(this.refreshTokenKey)}
+
+  }
+
+  refresh():Observable<RefreshResponseType>{
+    const refreshToken: string | null = localStorage.getItem(this.refreshTokenKey)
+    return this.http.post<RefreshResponseType>(environment.apiHost + 'refresh', {refreshToken})
   }
 
   public getLoggedIn():boolean{

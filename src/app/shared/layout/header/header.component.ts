@@ -40,7 +40,10 @@ export class HeaderComponent implements OnInit {
                }
            },
            error:(error: HttpErrorResponse)=>{
-               this._snackBar.open('Ошибка при выходе из системы')
+               this._snackBar.open('Ошибка при выходе из системы или обновлении токенов')
+               this.authService.removeTokens()
+               this.authService.removeUserInfo()
+               this.router.navigate(['/']) // не знаю что за ошибка в этом месте
                throw new Error(error.error.message)
            }
        })

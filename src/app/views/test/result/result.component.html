@@ -1,0 +1,18 @@
+<section class="result">
+    <div class="container">
+        <div class="result-content">
+            <div class="result-image">
+                <img src="assets/img/question-marks.png" alt="result">
+            </div>
+            <div class="result-title big-title">
+                Ура! Ты прошёл тест! <span>Твой результат:</span>
+            </div>
+            <div class="result-scope" id="result-scope">
+                {{result}}
+            </div>
+        </div>
+        <div class="link result-answers">
+            <a href="javascript:void(0)" id="link" (click)="showAnswers(testId)">Посмотреть правильные ответы<img src="/assets/img/small-arrow.png" alt="arrow"></a>
+        </div>
+    </div>
+</section>

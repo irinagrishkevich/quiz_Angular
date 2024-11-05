@@ -1,0 +1,32 @@
+<section class="answers" *ngIf="quiz">
+    <div class="container">
+        <div class="answers-tests">
+            <div class="answers-pre-title common-pre-title">Результат прохождения теста</div>
+            <img src="/assets/img/small-arrow-grey.png" alt="arrow">
+            <div class="answers-test-name" id="test-name">{{quiz.test.name}}</div>
+        </div>
+        <div class="answers-title big-title"><span>Правильные ответы</span> к тесту</div>
+        <div class="answers-test-user" id="test-user">Тест выполнил: <span>{{userInfo?.fullName}}, {{userEmail}}</span></div>
+        <div class="answers-questions" id="question">
+            <div class="all-question-and-answers" *ngFor="let question of quiz.test.questions; let i = index">
+                <div class="common-question-title"><span>Вопрос {{i + 1}}: </span>{{question.question}}</div>
+                <div class="answers-options">
+                    <div class="answers-question-option"
+                         *ngFor="let answer of question.answers, let j = index">
+                        <input class="option-answer" id="{{answer.id}}"
+                               [class.correct]="answer.correct"
+                               [class.un-correct]="!answer.correct && quizAnswerRight?.chosen_options?.includes(answer.id)"
+                               type="radio" name="12"
+                               value="{{answer.id}}">
+                        <label for="{{answer.id}}"
+                        >{{answer.answer}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="link result-answers">
+            <a href="javascript:void(0)" id="link" (click)="showResult(testId)">Обратно к моему результату теста<img
+                    src="/assets/img/small-arrow.png" alt="arrow"></a>
+        </div>
+    </div>
+</section>
